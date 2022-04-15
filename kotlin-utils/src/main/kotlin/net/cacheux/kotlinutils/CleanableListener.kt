@@ -15,8 +15,9 @@ interface CleanableListener {
  * Call a collection of listeners and remove those who meet the required condition for cleaning.
  * Work by default with [CleanableListener] but can be overridden to match any other listener type.
  *
- * @param cleanOn Lambda to use for the cleaning condition.
- * @param block Listener call.
+ * @param cleanOn Lambda to use for the cleaning condition
+ * @param block Listener call
+ * @return The list of results of each listener
  */
 fun <U, V> MutableCollection<U>.callAndCleanListeners(
     cleanOn: (U) -> Boolean = { it is CleanableListener && it.mustClean() },
